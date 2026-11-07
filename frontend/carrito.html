@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TecnoTienda | Carrito</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="site_header"></header>
+    <main class="cart_layout">
+      <h1 class="page_title">Mi carrito</h1>
+      <p id="page_message" class="message page_message" hidden></p>
+      <section id="cart_items" class="cart_items" aria-label="Productos en el carrito"></section>
+      <aside id="cart_summary" class="cart_summary" hidden>
+        <h2>Resumen</h2>
+        <p class="summary_row"><span>Productos</span><span id="summary_count"></span></p>
+        <p class="summary_row summary_total"><span>Total</span><span id="summary_total"></span></p>
+        <p class="summary_note">El pago es simulado, no se realiza ningún cobro.</p>
+        <button type="button" id="checkout_button">Confirmar compra</button>
+        <button type="button" id="clear_button" class="button_secondary">Vaciar carrito</button>
+      </aside>
+    </main>
+    <footer id="site_footer"></footer>
+    <script type="module" src="js/carrito.js"></script>
+  </body>
+</html>
