@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #ecf0f1;
@@ -855,6 +859,158 @@ select:focus {
   font-weight: bold;
 }
 
+/* admin */
+
+.admin_layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin_layout h1 {
+  margin-bottom: 0;
+}
+
+.admin_tabs {
+  display: flex;
+  gap: 5px;
+  border-bottom: 2px solid #2c3e50;
+}
+
+.tab {
+  flex: 1;
+  background: #d6eaf8;
+  color: #2c3e50;
+  border-radius: 4px 4px 0 0;
+}
+
+.tab.active {
+  background: #2c3e50;
+  color: white;
+}
+
+.admin_section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.admin_section[hidden] {
+  display: none;
+}
+
+.admin_orders {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin_form h2 {
+  margin-bottom: 0;
+}
+
+.form_row {
+  display: flex;
+  gap: 10px;
+}
+
+.form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.checkbox_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox_label input {
+  width: auto;
+}
+
+.image_preview {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  background: #f4f6f7;
+  border-radius: 4px;
+}
+
+.image_preview[hidden] {
+  display: none;
+}
+
+.admin_filter {
+  width: auto;
+  max-width: 180px;
+}
+
+.admin_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border-left: 4px solid #2c3e50;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.admin_thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.admin_row_info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 180px;
+  font-size: 14px;
+}
+
+.admin_row_info h3 {
+  font-size: 15px;
+}
+
+.admin_meta {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.admin_row_actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.stock_editor {
+  display: flex;
+  gap: 4px;
+}
+
+.stock_input {
+  width: 70px;
+}
+
+.admin_order_items {
+  font-size: 13px;
+  padding-left: 18px;
+}
+
 /* tablet */
 
 @media (min-width: 600px) {
@@ -910,6 +1066,19 @@ select:focus {
 /* desktop */
 
 @media (min-width: 900px) {
+  .admin_section {
+    grid-template-columns: 360px 1fr;
+  }
+
+  .admin_form {
+    position: sticky;
+    top: 10px;
+  }
+
+  .tab {
+    flex: 0 0 160px;
+  }
+
   .cart_layout,
   .orders_layout {
     grid-template-columns: 1fr 340px;

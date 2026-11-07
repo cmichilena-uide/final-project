@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TecnoTienda | Administración</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="site_header"></header>
+    <main class="admin_layout">
+      <h1>Panel de administración</h1>
+      <nav class="admin_tabs" aria-label="Secciones de administración">
+        <button type="button" class="tab active" data-tab="products_tab">Productos</button>
+        <button type="button" class="tab" data-tab="categories_tab">Categorías</button>
+        <button type="button" class="tab" data-tab="orders_tab">Pedidos</button>
+      </nav>
+      <p id="page_message" class="message" hidden></p>
+
+      <section id="products_tab" class="admin_section">
+        <form id="product_form" class="form_card admin_form" novalidate>
+          <h2 id="product_form_title">Agregar producto</h2>
+          <label for="product_name">Nombre</label>
+          <input type="text" id="product_name" required />
+          <label for="product_description">Descripción</label>
+          <textarea id="product_description" rows="3" required></textarea>
+          <div class="form_row">
+            <div class="form_field">
+              <label for="product_price">Precio (USD)</label>
+              <input type="number" id="product_price" step="0.01" min="0.01" required />
+            </div>
+            <div class="form_field">
+              <label for="product_stock">Stock</label>
+              <input type="number" id="product_stock" step="1" min="0" required />
+            </div>
+          </div>
+          <label for="product_category">Categoría</label>
+          <select id="product_category" required></select>
+          <label for="product_image">Imagen (carpeta Assets)</label>
+          <select id="product_image" required></select>
+          <img id="image_preview" class="image_preview" alt="Vista previa" hidden />
+          <label class="checkbox_label"><input type="checkbox" id="product_featured" /> Producto destacado</label>
+          <div class="form_actions">
+            <button type="submit" id="product_save">Guardar</button>
+            <button type="button" id="product_cancel" class="button_secondary" hidden>Cancelar</button>
+          </div>
+        </form>
+        <div class="admin_list_box">
+          <div class="section_header">
+            <h2>Productos (<span id="product_count">0</span>)</h2>
+            <input type="search" id="product_filter" class="admin_filter" placeholder="Filtrar..." aria-label="Filtrar productos" />
+          </div>
+          <div id="product_list" class="admin_list"></div>
+        </div>
+      </section>
+
+      <section id="categories_tab" class="admin_section" hidden>
+        <form id="category_form" class="form_card admin_form" novalidate>
+          <h2 id="category_form_title">Agregar categoría</h2>
+          <label for="category_name">Nombre</label>
+          <input type="text" id="category_name" required />
+          <label for="category_description">Descripción</label>
+          <textarea id="category_description" rows="2" required></textarea>
+          <div class="form_actions">
+            <button type="submit" id="category_save">Guardar</button>
+            <button type="button" id="category_cancel" class="button_secondary" hidden>Cancelar</button>
+          </div>
+        </form>
+        <div class="admin_list_box">
+          <h2>Categorías</h2>
+          <div id="category_list" class="admin_list"></div>
+        </div>
+      </section>
+
+      <section id="orders_tab" class="admin_section admin_orders" hidden>
+        <div class="section_header">
+          <h2>Pedidos registrados</h2>
+          <select id="order_filter" class="admin_filter" aria-label="Filtrar por estado">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="procesando">Procesando</option>
+            <option value="enviado">Enviado</option>
+            <option value="entregado">Entregado</option>
+          </select>
+        </div>
+        <div id="admin_order_list" class="admin_list"></div>
+      </section>
+    </main>
+    <footer id="site_footer"></footer>
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>
