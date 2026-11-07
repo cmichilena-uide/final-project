@@ -41,3 +41,9 @@ def get_admin_user(user: CurrentUser) -> Usuario:
 
 
 AdminUser = Annotated[Usuario, Depends(get_admin_user)]
+
+
+def user_id_of(user: Usuario) -> int:
+    if user.id is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+    return user.id
