@@ -6,9 +6,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from controller import (
+    admin_controller,
     auth_controller,
     carrito_controller,
     categoria_controller,
+    pedido_controller,
     producto_controller,
 )
 from core.config import settings
@@ -36,4 +38,6 @@ app.include_router(auth_controller.router)
 app.include_router(categoria_controller.router)
 app.include_router(producto_controller.router)
 app.include_router(carrito_controller.router)
+app.include_router(pedido_controller.router)
+app.include_router(admin_controller.router)
 app.mount("/Assets", StaticFiles(directory=ASSETS_DIR), name="assets")
