@@ -29,6 +29,13 @@ export const logout = () => {
   window.location.href = "index.html";
 };
 
+const SAFE_NEXT = /^[a-z]+\.html(\?[A-Za-z0-9=&%._-]*)?$/;
+
+export const nextPage = () => {
+  const next = new URLSearchParams(window.location.search).get("next");
+  return next !== null && SAFE_NEXT.test(next) ? next : "index.html";
+};
+
 export const goToLogin = () => {
   window.location.href = "login.html?next=" + encodeURIComponent(currentPage());
 };

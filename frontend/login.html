@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TecnoTienda | Iniciar sesión</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="site_header"></header>
+    <main class="auth_layout">
+      <section class="auth_box">
+        <h1>Iniciar sesión</h1>
+        <form id="login_form" class="form_card" novalidate>
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" autocomplete="email" required />
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" autocomplete="current-password" required />
+          <div class="form_actions">
+            <button type="submit" id="submit_button">Ingresar</button>
+          </div>
+        </form>
+        <p id="form_message" class="message" hidden></p>
+        <p class="auth_switch">¿No tienes cuenta? <a id="switch_link" href="registro.html">Regístrate aquí</a></p>
+      </section>
+    </main>
+    <footer id="site_footer"></footer>
+    <script type="module" src="js/login.js"></script>
+  </body>
+</html>

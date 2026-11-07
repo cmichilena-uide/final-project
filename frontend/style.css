@@ -565,6 +565,25 @@ select:focus {
   flex: 1;
 }
 
+/* auth */
+
+.auth_layout {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+}
+
+.auth_box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth_switch {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
 /* tablet */
 
 @media (min-width: 600px) {
