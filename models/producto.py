@@ -16,6 +16,7 @@ class Producto(SQLModel, table=True):
     stock: int = Field(default=0, ge=0)
     imagen: str = Field(max_length=255)
     activo: bool = Field(default=True, index=True)
+    destacado: bool = Field(default=False, index=True)
     categoria_id: int = Field(foreign_key="categoria.id", index=True)
 
     categoria: "Categoria" = Relationship(back_populates="productos")

@@ -1,9 +1,11 @@
 from pathlib import Path
 
 from dotenv import dotenv_values
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 
-ENV_FILE = Path(__file__).resolve().parent.parent / ".env"
+BASE_DIR = Path(__file__).resolve().parent.parent
+ENV_FILE = BASE_DIR / ".env"
+SQLITE_PREFIX = "sqlite:///"
 
 
 class Settings(BaseModel):
@@ -14,6 +16,17 @@ class Settings(BaseModel):
     algorithm: str = Field(min_length=1)
     access_token_expire_minutes: int = Field(gt=0)
     cors_origins: list[str] = Field(min_length=1)
+    admin_email: EmailStr
+    admin_password: str = Field(min_length=8)
+
+    @field_validator("database_url")
+    @classmethod
+    def anchor_sqlite_path(cls, value: str) -> str:
+        if value.startswith(SQLITE_PREFIX):
+            path = Path(value.removeprefix(SQLITE_PREFIX))
+            if not path.is_absolute():
+                return f"{SQLITE_PREFIX}{BASE_DIR / path}"
+        return value
 
     @field_validator("cors_origins", mode="before")
     @classmethod

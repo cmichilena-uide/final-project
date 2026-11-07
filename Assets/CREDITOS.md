@@ -23,7 +23,7 @@ Todas las imágenes provienen de Wikimedia Commons.
 | `laptops/thinkpad.jpg` | [IBM Thinkpad R51.jpg](https://commons.wikimedia.org/wiki/File:IBM_Thinkpad_R51.jpg) | André Karwath aka Aka | CC BY-SA 4.0 |
 | `monitores/monitor-curvo.jpg` | [ASUS curved monitor 20170603.jpg](https://commons.wikimedia.org/wiki/File:ASUS_curved_monitor_20170603.jpg) | Devan Hsu | CC BY-SA 2.0 |
 | `monitores/monitor-gamer-eizo.jpg` | [EIZO Foris FG2421 VGA computer monitor displaying test pattern.png](https://commons.wikimedia.org/wiki/File:EIZO_Foris_FG2421_VGA_computer_monitor_displaying_test_pattern.png) | Lucasbosch | CC BY-SA 4.0 |
-| `monitores/monitor-lg-24.jpg` | [Monitor lcd lg de frente.jpeg](https://commons.wikimedia.org/wiki/File:Monitor_lcd_lg_de_frente.jpeg) | EEIM | CC BY-SA 3.0 |
+| `monitores/monitor-lg.jpg` | [Monitor lcd lg de frente.jpeg](https://commons.wikimedia.org/wiki/File:Monitor_lcd_lg_de_frente.jpeg) | EEIM | CC BY-SA 3.0 |
 | `monitores/monitor-ultrawide-34.jpg` | [Dell S3423DWC unboxing, front angled.png](https://commons.wikimedia.org/wiki/File:Dell_S3423DWC_unboxing,_front_angled.png) | XALIRATE | CC BY 4.0 |
 | `smartphones/galaxy-s23.jpg` | [Back of the Samsung Galaxy S23.jpg](https://commons.wikimedia.org/wiki/File:Back_of_the_Samsung_Galaxy_S23.jpg) | Hajoon0102 | CC BY-SA 4.0 |
 | `smartphones/iphone-15.jpg` | [Apple iPhone 15.jpg](https://commons.wikimedia.org/wiki/File:Apple_iPhone_15.jpg) | IPHONE 15 | CC BY-SA 4.0 |
