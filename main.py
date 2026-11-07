@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from controller import auth_controller
 from core.config import settings
@@ -14,6 +16,8 @@ async def lifespan(_app: FastAPI):
     yield
 
 
+ASSETS_DIR = Path(__file__).resolve().parent / "Assets"
+
 app = FastAPI(title="Tienda UIDE", lifespan=lifespan)
 
 app.add_middleware(
@@ -24,3 +28,4 @@ app.add_middleware(
 )
 
 app.include_router(auth_controller.router)
+app.mount("/Assets", StaticFiles(directory=ASSETS_DIR), name="assets")
