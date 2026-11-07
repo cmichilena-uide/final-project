@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TecnoTienda | Catálogo</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="site_header"></header>
+    <main class="catalog_layout">
+      <h1 class="catalog_title">Catálogo de productos</h1>
+      <aside class="filters">
+        <form id="search_form" class="search_bar" role="search">
+          <input type="search" id="search_input" placeholder="Buscar por nombre o descripción" aria-label="Buscar productos" />
+          <button type="submit">Buscar</button>
+        </form>
+        <h2>Categorías</h2>
+        <div id="category_chips" class="chips"></div>
+      </aside>
+      <section class="catalog_results">
+        <p id="result_count" class="result_count"></p>
+        <p id="page_message" class="message" hidden></p>
+        <div id="product_list" class="product_grid"></div>
+      </section>
+    </main>
+    <footer id="site_footer"></footer>
+    <script type="module" src="js/catalogo.js"></script>
+  </body>
+</html>

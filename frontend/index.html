@@ -10,7 +10,38 @@
   <body>
     <header id="site_header"></header>
     <main>
-      <h1>Bienvenido a TecnoTienda</h1>
+      <section class="hero">
+        <h1>Bienvenido a TecnoTienda</h1>
+        <p>Laptops, celulares, audio, gaming y más al mejor precio.</p>
+        <form id="search_form" class="search_bar" role="search">
+          <input type="search" id="search_input" placeholder="Buscar productos..." aria-label="Buscar productos" />
+          <button type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <section class="home_section">
+        <div class="section_header">
+          <h2>Te puede interesar</h2>
+          <button type="button" id="shuffle_button" class="button_light">Ver otros</button>
+        </div>
+        <div id="random_products" class="product_grid"></div>
+      </section>
+
+      <section class="home_section">
+        <div class="section_header">
+          <h2>Productos destacados</h2>
+        </div>
+        <div id="featured_products" class="product_grid"></div>
+      </section>
+
+      <section class="home_section">
+        <div class="section_header">
+          <h2>Categorías</h2>
+          <a href="catalogo.html" class="button">Ver catálogo</a>
+        </div>
+        <div id="category_list" class="category_grid"></div>
+      </section>
+      <p id="page_message" class="message" hidden></p>
     </main>
     <footer id="site_footer"></footer>
     <script type="module" src="js/index.js"></script>

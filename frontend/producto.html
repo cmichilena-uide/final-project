@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TecnoTienda | Producto</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="site_header"></header>
+    <main>
+      <a href="catalogo.html" class="back_link">← Volver al catálogo</a>
+      <p id="page_message" class="message" hidden></p>
+      <article id="product_detail" class="product_detail" hidden>
+        <div class="detail_image_box">
+          <img id="detail_image" class="detail_image" alt="" />
+        </div>
+        <div class="detail_info">
+          <a id="detail_category" class="card_category"></a>
+          <h1 id="detail_name"></h1>
+          <p id="detail_price" class="price detail_price"></p>
+          <p id="detail_stock" class="stock"></p>
+          <p id="detail_description" class="detail_description"></p>
+          <form id="add_form" class="add_form">
+            <label for="quantity">Cantidad</label>
+            <div class="quantity_row">
+              <input type="number" id="quantity" min="1" value="1" required />
+              <button type="submit" id="add_button">Agregar al carrito</button>
+            </div>
+          </form>
+          <p id="add_message" class="message" hidden></p>
+        </div>
+      </article>
+    </main>
+    <footer id="site_footer"></footer>
+    <script type="module" src="js/producto.js"></script>
+  </body>
+</html>
