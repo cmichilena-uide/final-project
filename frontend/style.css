@@ -55,8 +55,6 @@ h2 {
   padding-bottom: 5px;
 }
 
-/* nav */
-
 .main_nav {
   display: flex;
   flex-wrap: wrap;
@@ -128,8 +126,6 @@ h2 {
   font-weight: bold;
 }
 
-/* buttons */
-
 .button,
 button {
   display: inline-block;
@@ -175,8 +171,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* forms */
-
 .form_card {
   display: flex;
   flex-direction: column;
@@ -217,8 +211,6 @@ select:focus {
   margin-top: 5px;
 }
 
-/* messages */
-
 .message {
   padding: 8px 10px;
   border-radius: 4px;
@@ -252,8 +244,6 @@ select:focus {
   text-align: center;
   color: #7f8c8d;
 }
-
-/* products */
 
 .product_grid {
   display: grid;
@@ -337,8 +327,6 @@ select:focus {
   color: #e74c3c;
 }
 
-/* footer */
-
 .footer_content {
   display: flex;
   flex-direction: column;
@@ -355,8 +343,6 @@ select:focus {
   font-size: 12px;
   color: #bdc3c7;
 }
-
-/* home */
 
 .hero {
   display: flex;
@@ -431,8 +417,6 @@ select:focus {
   color: #555;
 }
 
-/* catalog */
-
 .catalog_layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -496,8 +480,6 @@ select:focus {
   color: #555;
   margin-bottom: 10px;
 }
-
-/* product detail */
 
 .back_link {
   display: inline-block;
@@ -569,8 +551,6 @@ select:focus {
   flex: 1;
 }
 
-/* auth */
-
 .auth_layout {
   display: grid;
   justify-items: center;
@@ -587,8 +567,6 @@ select:focus {
   font-size: 14px;
   text-align: center;
 }
-
-/* cart */
 
 .page_title {
   grid-area: title;
@@ -715,8 +693,6 @@ select:focus {
   font-size: 12px;
   color: #7f8c8d;
 }
-
-/* orders */
 
 .order_list {
   grid-area: items;
@@ -858,8 +834,6 @@ select:focus {
 .order_line_subtotal {
   font-weight: bold;
 }
-
-/* admin */
 
 .admin_layout {
   display: flex;
@@ -1011,8 +985,6 @@ select:focus {
   padding-left: 18px;
 }
 
-/* tablet */
-
 @media (min-width: 600px) {
   main {
     padding: 20px;
@@ -1062,8 +1034,6 @@ select:focus {
     font-size: 13px;
   }
 }
-
-/* desktop */
 
 @media (min-width: 900px) {
   .admin_section {

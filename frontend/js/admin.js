@@ -27,8 +27,6 @@ const attempt = async (action, successText) => {
   }
 };
 
-/* tabs */
-
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((other) => other.classList.toggle("active", other === tab));
@@ -41,8 +39,6 @@ document.querySelectorAll(".tab").forEach((tab) => {
     }
   });
 });
-
-/* products */
 
 const option = (value, text, selected = false) =>
   el("option", { text, attrs: { value, selected } });
@@ -217,8 +213,6 @@ $("#product_form").addEventListener("submit", async (event) => {
   }
 });
 
-/* categories */
-
 const resetCategoryForm = () => {
   state.editingCategory = null;
   $("#category_form").reset();
@@ -310,8 +304,6 @@ $("#category_form").addEventListener("submit", async (event) => {
   }
 });
 
-/* orders */
-
 const nextEstado = (estado) => ESTADOS[ESTADOS.indexOf(estado) + 1] ?? null;
 
 const advanceOrder = async (order, estado) => {
@@ -371,8 +363,6 @@ const loadOrders = async () => {
 };
 
 $("#order_filter").addEventListener("change", loadOrders);
-
-/* init */
 
 const loadImages = async () => {
   const images = await apiFetch("/productos/imagenes", { auth: true });
