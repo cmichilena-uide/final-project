@@ -4,6 +4,7 @@ from typing import Annotated
 from fastapi import Depends
 from sqlmodel import Session, SQLModel, create_engine
 
+import models as models
 from core.config import settings
 
 connect_args = (

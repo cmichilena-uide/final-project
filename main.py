@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from controller import auth_controller, producto_controller
+from controller import auth_controller
 from core.config import settings
 from db.database import create_db_and_tables
 
@@ -24,4 +24,3 @@ app.add_middleware(
 )
 
 app.include_router(auth_controller.router)
-app.include_router(producto_controller.router)

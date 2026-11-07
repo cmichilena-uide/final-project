@@ -1,4 +1,3 @@
-from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, or_, select
 
 from core.security import (
@@ -32,11 +31,7 @@ def register_user(session: Session, data: UserCreate) -> Usuario:
         password=hash_password(data.password),
     )
     session.add(user)
-    try:
-        session.commit()
-    except IntegrityError as error:
-        session.rollback()
-        raise UserAlreadyExistsError from error
+    session.commit()
     session.refresh(user)
     return user
 
