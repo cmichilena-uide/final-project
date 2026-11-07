@@ -1,4 +1,4 @@
-from sqlmodel import Session, or_, select
+from sqlmodel import Session, select
 
 from core.security import (
     DUMMY_HASH,
@@ -18,16 +18,16 @@ class InvalidCredentialsError(Exception):
     pass
 
 
+def get_user_by_email(session: Session, email: str) -> Usuario | None:
+    return session.exec(select(Usuario).where(Usuario.email == email.lower())).first()
+
+
 def register_user(session: Session, data: UserCreate) -> Usuario:
-    email = data.email.lower()
-    existing = session.exec(
-        select(Usuario).where(or_(Usuario.username == data.username, Usuario.email == email))
-    ).first()
-    if existing is not None:
+    if get_user_by_email(session, data.email) is not None:
         raise UserAlreadyExistsError
     user = Usuario(
-        username=data.username,
-        email=email,
+        nombre=data.nombre.strip(),
+        email=data.email.lower(),
         password=hash_password(data.password),
     )
     session.add(user)
@@ -36,18 +36,18 @@ def register_user(session: Session, data: UserCreate) -> Usuario:
     return user
 
 
-def authenticate_user(session: Session, username: str, password: str) -> Usuario:
-    user = session.exec(select(Usuario).where(Usuario.username == username)).first()
+def authenticate_user(session: Session, email: str, password: str) -> Usuario:
+    user = get_user_by_email(session, email)
     if user is None:
-        verify_password(password, DUMMY_HASH)
+        _ = verify_password(password, DUMMY_HASH)
         raise InvalidCredentialsError
     if not verify_password(password, user.password):
         raise InvalidCredentialsError
     return user
 
 
-def login(session: Session, username: str, password: str) -> Token:
-    user = authenticate_user(session, username, password)
+def login(session: Session, email: str, password: str) -> Token:
+    user = authenticate_user(session, email, password)
     return Token(access_token=create_access_token(str(user.id)))
 
 

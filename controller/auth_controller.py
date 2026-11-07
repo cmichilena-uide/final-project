@@ -5,6 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 from db.database import SessionDep
 from schemas.usuario import Token, UserCreate, UserRead
+from dependencies.auth import CurrentUser
 from services import auth_service
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -17,7 +18,7 @@ def register(data: UserCreate, session: SessionDep):
     except auth_service.UserAlreadyExistsError:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="El usuario o el email ya están registrados",
+            detail="El correo ya está registrado",
         )
 
 
@@ -30,6 +31,11 @@ def login(
     except auth_service.InvalidCredentialsError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Usuario o contraseña incorrectos",
+            detail="Correo o contraseña incorrectos",
             headers={"WWW-Authenticate": "Bearer"},
         )
+
+
+@router.get("/me", response_model=UserRead)
+def me(user: CurrentUser):
+    return user

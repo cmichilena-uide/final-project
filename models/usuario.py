@@ -16,7 +16,7 @@ class Rol(StrEnum):
 
 class Usuario(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
-    username: str = Field(unique=True, index=True, max_length=50)
+    nombre: str = Field(max_length=100)
     email: str = Field(unique=True, index=True, max_length=255)
     password: str
     rol: Rol = Field(default=Rol.cliente)

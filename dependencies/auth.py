@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordBearer
 
 from core.security import decode_access_token
 from db.database import SessionDep
-from models.usuario import Usuario
+from models.usuario import Rol, Usuario
 from services import auth_service
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
@@ -29,3 +29,15 @@ def get_current_user(
 
 
 CurrentUser = Annotated[Usuario, Depends(get_current_user)]
+
+
+def get_admin_user(user: CurrentUser) -> Usuario:
+    if user.rol != Rol.admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="No tienes permisos de administrador",
+        )
+    return user
+
+
+AdminUser = Annotated[Usuario, Depends(get_admin_user)]
