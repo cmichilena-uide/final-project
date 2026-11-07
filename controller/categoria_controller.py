@@ -3,7 +3,8 @@ from fastapi import APIRouter, HTTPException, status
 from db.database import SessionDep
 from dependencies.auth import AdminUser
 from schemas.categoria import CategoryCreate, CategoryRead
-from services import categoria_service
+from schemas.producto import ProductRead
+from services import categoria_service, producto_service
 
 router = APIRouter(prefix="/categorias", tags=["categorias"])
 
@@ -22,6 +23,13 @@ def get_category(id: int, session: SessionDep):
     if category is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=NOT_FOUND)
     return category
+
+
+@router.get("/{id}/productos", response_model=list[ProductRead])
+def list_category_products(id: int, session: SessionDep):
+    if categoria_service.get_category(session, id) is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=NOT_FOUND)
+    return producto_service.list_products(session, categoria_id=id)
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=CategoryRead)
