@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from controller import auth_controller
+from controller import auth_controller, categoria_controller
 from core.config import settings
 from db.database import create_db_and_tables
 
@@ -28,4 +28,5 @@ app.add_middleware(
 )
 
 app.include_router(auth_controller.router)
+app.include_router(categoria_controller.router)
 app.mount("/Assets", StaticFiles(directory=ASSETS_DIR), name="assets")
